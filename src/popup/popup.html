@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Skool Exporter</title>
+    <link rel="stylesheet" href="./popup.css">
+  </head>
+  <body>
+    <main class="app">
+      <header class="product-header">
+        <div class="brand-row">
+          <div class="brand-mark">
+            <img src="../../icons/icon32.png" alt="" width="28" height="28">
+          </div>
+          <div class="brand-copy">
+            <h1>Skool Exporter</h1>
+            <p>Video and transcript tools</p>
+          </div>
+          <span class="version">v1.9</span>
+        </div>
+        <div class="permission-note">
+          <span class="icon icon-shield" aria-hidden="true"></span>
+          <span><strong>Authorized content only.</strong> Protected and encrypted media is not supported.</span>
+        </div>
+      </header>
+
+      <div class="content">
+        <section class="lesson-panel" aria-live="polite">
+          <div class="lesson-heading">
+            <span class="eyebrow">Current lesson</span>
+            <h2 id="lessonTitle">Checking page...</h2>
+          </div>
+
+          <div class="signal-row">
+            <span class="signal-icon video-signal" aria-hidden="true">
+              <span class="icon icon-video"></span>
+            </span>
+            <div class="signal-copy">
+              <div class="signal-title">
+                <span>Video</span>
+                <strong id="videoStatus">Checking</strong>
+              </div>
+              <p id="videoMessage">Looking for accessible lesson media.</p>
+            </div>
+          </div>
+
+          <div class="signal-row">
+            <span class="signal-icon transcript-signal" aria-hidden="true">
+              <span class="icon icon-captions"></span>
+            </span>
+            <div class="signal-copy">
+              <div class="signal-title">
+                <span>Transcript</span>
+                <strong id="transcriptStatus">Checking</strong>
+              </div>
+              <p id="transcriptMessage">Looking for captions and transcript text.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="actions" aria-label="Export actions">
+          <button id="downloadVideoButton" class="primary-action" type="button" disabled>
+            <span class="icon icon-download" aria-hidden="true"></span>
+            <span>Download Video</span>
+          </button>
+          <div class="secondary-actions">
+            <button id="refreshButton" type="button" title="Refresh lesson status">
+              <span class="icon icon-refresh" aria-hidden="true"></span>
+              <span>Refresh</span>
+            </button>
+            <button id="extractTranscriptButton" type="button" disabled>
+              <span class="icon icon-file-down" aria-hidden="true"></span>
+              <span>Export TXT</span>
+            </button>
+            <button id="copyTranscriptButton" type="button" disabled>
+              <span class="icon icon-copy" aria-hidden="true"></span>
+              <span>Copy</span>
+            </button>
+          </div>
+        </section>
+
+        <section class="settings">
+          <div class="section-heading">
+            <span class="section-name">
+              <span class="icon icon-settings" aria-hidden="true"></span>
+              <span>Export settings</span>
+            </span>
+            <span class="saved-note">
+              <span class="icon icon-check" aria-hidden="true"></span>
+              Auto-saved
+            </span>
+          </div>
+          <label class="toggle-row">
+            <span>
+              <strong>Include timestamps</strong>
+              <small>Applied to TXT and copied text</small>
+            </span>
+            <input id="includeTimestamps" type="checkbox">
+            <span class="toggle-control" aria-hidden="true"></span>
+          </label>
+          <label class="filename-row">
+            <span>Filename template</span>
+            <input id="filenameFormat" type="text" value="{title}-{date}.{ext}" spellcheck="false">
+          </label>
+        </section>
+
+        <section id="progress" class="progress" hidden>
+          <div class="progress-heading">
+            <span class="progress-title">
+              <span class="icon icon-loader" aria-hidden="true"></span>
+              Processing export
+            </span>
+            <span id="progressPercent"></span>
+          </div>
+          <div class="progress-bar"><span id="progressBar"></span></div>
+          <p id="progressText"></p>
+        </section>
+
+        <section id="errorBox" class="error" role="alert" hidden></section>
+      </div>
+    </main>
+
+    <script src="./popup.js"></script>
+  </body>
+</html>
