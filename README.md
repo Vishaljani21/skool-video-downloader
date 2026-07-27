@@ -1,10 +1,15 @@
-# Skool Video & Transcript Exporter
+# Skool Video Downloader
 
-Production-ready Chrome Extension (Manifest V3) for exporting Skool lesson video and transcript data when the logged-in user already has legitimate access and permission to download the content.
+Open-source Skool video downloader and transcript exporter for Chrome (Manifest V3). Download browser-accessible, non-DRM Skool lesson videos and export clean course transcripts when you own the content or have permission from the content owner.
+
+The extension supports authorized Skool video downloads, Vimeo lesson exports, unencrypted HLS streams, HTML5 video files, caption extraction, transcript copying, and TXT transcript export from one popup.
 
 Version 1.9 adds automatic recovery when Skool replaces the lesson player iframe, remembers the fastest successful media fetch route per CDN host, raises balanced Vimeo fragment concurrency from four to six total requests, and bundles Inter Variable for clearer popup typography.
 
-## Safety boundary
+> [!IMPORTANT]
+> This independent open-source project is not affiliated with, endorsed by, or sponsored by Skool. Use it only for content you own or have explicit permission to download.
+
+## Supported Skool video formats
 
 This extension is for authorized content only. It does not implement DRM circumvention, encryption-key fetching, token stealing, cookie extraction, hidden API abuse, paywall bypassing, or authentication bypass.
 
@@ -17,7 +22,7 @@ Video download is offered only when the current Skool page exposes one of these 
 
 Unsupported cases are reported in the popup. Encrypted HLS/DASH, DRM, protected streams, other DASH packaging, and signed resources that the authorized lesson page cannot fetch are not downloaded.
 
-## Features
+## Skool video downloader features
 
 - Detects the active visible Skool lesson video.
 - Checks same-tab frames because some Skool lessons render the player inside embedded frame content.
@@ -42,12 +47,12 @@ Unsupported cases are reported in the popup. Encrypted HLS/DASH, DRM, protected 
 - Supports optional TXT/copy timestamps.
 - Supports filename templates with `{title}`, `{date}`, and `{ext}`.
 
-## Install locally
+## Install Skool Video Downloader in Chrome
 
 1. Open Chrome and go to `chrome://extensions`.
 2. Enable **Developer mode**.
 3. Click **Load unpacked**.
-4. Select the `skool-video-transcript-exporter` folder.
+4. Select the extracted repository folder containing `manifest.json`.
 5. Open a Skool classroom or lesson page where you are logged in and have permission to access the material.
 6. Reload the Skool lesson page after installing or updating the extension.
 7. Play the lesson video for a few seconds so the player loads its media/caption requests.
